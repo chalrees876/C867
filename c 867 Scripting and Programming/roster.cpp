@@ -100,3 +100,11 @@ void Roster::printAverageDaysInCourse(string studentID) {
 void Roster::printInvalidEmails() {
     
 }
+
+Roster::~Roster() {
+    int i = 0;
+    while (classRosterArray.size() > 0) {
+        delete classRosterArray.at(i)
+        i++;
+    }
+}
