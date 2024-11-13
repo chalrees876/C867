@@ -14,8 +14,8 @@ public:
     void printAverageDaysInCourse(string studentID);
     void printInvalidEmails();
     void printByDegreeProgram(DegreeProgram degreeProgram);
-    unsigned long getNumStudents();
-    vector<Student*> getClassRosterArray();
+    unsigned long getNumStudents(); // added accessor to access number of students in classRosterArray.
+    vector<Student*> getClassRosterArray(); //added accessor to access classRosterArray and be able to index into it.
     ~Roster();
     
 private:

@@ -132,6 +132,7 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
     }
 }
 
+//Deconstructor
 Roster::~Roster() {
     for (int i = 0; i < classRosterArray.size(); ++i) {
         cout << "in Roster Deconstructor: " << classRosterArray.at(i)->GetStudentId() << endl;

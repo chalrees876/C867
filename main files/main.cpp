@@ -28,6 +28,7 @@ int main() {
     classRoster.printInvalidEmails();
     
     for (int i = 0; i < classRoster.getNumStudents(); ++i) {
+        // Iterates through classRoster array and prints out average days in course for each student
         currId = classRoster.getClassRosterArray().at(i)->GetStudentId();
         classRoster.printAverageDaysInCourse(currId);
     }
