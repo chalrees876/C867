@@ -33,6 +33,7 @@ class Student {
         vector<int> GetDaysToComplete() const ;
         DegreeProgram GetDegreeProgram() const ;
         void PrintStudent() const;
+        ~Student();
     
 
     private:
