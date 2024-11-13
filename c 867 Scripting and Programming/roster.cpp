@@ -7,6 +7,13 @@
 #include "roster.h"
 #include <iostream>
 
+unsigned long Roster::getNumStudents() {
+    return classRosterArray.size();
+}
+
+vector<Student*> Roster::getClassRosterArray(){
+    return classRosterArray;
+}
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
     Student* newStudent = new Student;
@@ -37,6 +44,7 @@ void Roster::remove(string studentID) {
             }
         }
         if (!found) {
+            cout << "///////////////////////////////////" << endl;
             cout << "Error, student not found" << endl;
             break;
         }
@@ -77,6 +85,7 @@ void Roster::printAll() {
 void Roster::printAverageDaysInCourse(string studentID) {
     bool found = false;
     double average;
+    cout << "///////////////////////////////////" << endl;
     while (!found) {
         for (int i =0; i < classRosterArray.size(); ++i) {
             if (classRosterArray.at(i)->GetStudentId() == studentID) {
@@ -98,14 +107,34 @@ void Roster::printAverageDaysInCourse(string studentID) {
 }
 
 void Roster::printInvalidEmails() {
-    
+    string currEmail;
+    unsigned long foundAt, foundPeriod, foundSpace;
+    cout << "///////////////////////////////////" << endl;
+    for (int i = 0; i < classRosterArray.size(); ++i) {
+        currEmail = classRosterArray.at(i)->GetEmailAddress();
+        foundAt = currEmail.find('@');
+        foundPeriod = currEmail.find('.');
+        foundSpace = currEmail.find(' ');
+        if (foundAt != string::npos && foundPeriod != string::npos && foundSpace == string::npos) {
+            continue;
+        }
+        else {
+            cout << "Invalid email address: " << classRosterArray.at(i)->GetEmailAddress() << endl;
+        }
+    }
+}
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
+    for (int i = 0; i < classRosterArray.size(); ++i) {
+        if (classRosterArray.at(i)->GetDegreeProgram() == degreeProgram) {
+            classRosterArray.at(i)->PrintStudent();
+        }
+    }
 }
 
 Roster::~Roster() {
     for (int i = 0; i < classRosterArray.size(); ++i) {
         cout << "in Roster Deconstructor: " << classRosterArray.at(i)->GetStudentId() << endl;
         delete classRosterArray.at(i);
-        cout << "classRosterArray size: " << classRosterArray.size() << endl;
-        cout << "i: " << i << endl;
     }
 }

@@ -13,21 +13,30 @@ using namespace std;
 
 void parseStudentData(const string studentData[], int studentListSize, Roster& newRoster);
 
+const string studentData[] =
+{"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY", "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK", "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE", "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY", "A5,Chris,Mckenzie,cmcken10@wgu.edu,25,30,35,30,SOFTWARE"};
+
 int main() {
     int studentListSize = (sizeof(studentData)/sizeof(studentData[0]));
+    string currId;
     
-    Roster classRoster;
+    Roster classRoster; //constructs a Roster object classRoster
     
     parseStudentData(studentData, studentListSize, classRoster);//parses student data from table and adds it to classRoster object.
     
     classRoster.printAll();
+    classRoster.printInvalidEmails();
     
+    for (int i = 0; i < classRoster.getNumStudents(); ++i) {
+        currId = classRoster.getClassRosterArray().at(i)->GetStudentId();
+        classRoster.printAverageDaysInCourse(currId);
+    }
+    
+    classRoster.printByDegreeProgram(SOFTWARE);
     classRoster.remove("A3");
-    
     classRoster.printAll();
-    
-    classRoster.printAverageDaysInCourse("A2");
-    
+    classRoster.remove("A3");
+
     return 0;
     
     
@@ -46,7 +55,7 @@ void parseStudentData(const string studentData[], int studentListSize, Roster& n
         
         nextCommaPosition = s.find(',');
         studentID = s.substr(0, nextCommaPosition);
-        s = s.substr(studentID.length() + 1);
+        s = s.substr(studentID.length() + 1); //removes studentID and comma from string
         
         nextCommaPosition = s.find(','); //finds next comma
         firstName = s.substr(0, nextCommaPosition);
@@ -54,16 +63,16 @@ void parseStudentData(const string studentData[], int studentListSize, Roster& n
         
         nextCommaPosition = s.find(','); //finds next comma
         lastName = s.substr(0, nextCommaPosition);
-        s = s.substr(lastName.length() + 1);
+        s = s.substr(lastName.length() + 1); // removes lastName and comma from string
         
         nextCommaPosition = s.find(','); //finds next comma
         email = s.substr(0, nextCommaPosition);
-        s = s.substr(email.length() + 1);
+        s = s.substr(email.length() + 1); //removes email and comma from string
         
         nextCommaPosition = s.find(','); //finds next comma
         ageString = s.substr(0, nextCommaPosition);
         age = stoi(ageString);
-        s = s.substr(ageString.length() + 1);
+        s = s.substr(ageString.length() + 1);//so on
         
         nextCommaPosition = s.find(','); //finds next comma
         daysToComplete1String = s.substr(0, nextCommaPosition);

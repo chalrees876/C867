@@ -9,6 +9,7 @@
 using namespace std;
 #include "student.h"
 
+///Student Constructor with every parameter
 Student::Student(string studentId, string firstName, string lastName, string email, int age, int daysToComplete1, int daysToComplete2, int daysToComplete3, DegreeProgram degreeProgram)
     {
     this->studentId = studentId;
@@ -22,6 +23,7 @@ Student::Student(string studentId, string firstName, string lastName, string ema
     this->degreeProgram = degreeProgram;
 }
 
+///default student constructor with no parameters
 Student::Student()
     {
     this->studentId = "Unknown";
@@ -35,6 +37,7 @@ Student::Student()
     this->degreeProgram = NONE;
 }
 
+///mutators
 void Student::SetStudentID(string studentId) {
     this->studentId = studentId;
 }
@@ -73,8 +76,6 @@ int Student::GetAge() const {
     return age;
 }
 
-/// FIX ME Figure out days to complete array
-
 vector<int> Student::GetDaysToComplete() const {
     return daysToComplete;
 }
@@ -84,13 +85,20 @@ DegreeProgram Student::GetDegreeProgram() const {
 }
 
 void Student::PrintStudent() const {
+    
+    cout << "///////////////////////////////////" << endl;
 
     cout << "Student Age: " << age << endl;
+    
     cout << "Student Name: " << lastName << ", " << firstName << endl;
+    
     cout << "Student Email: " << email << endl;
-    cout << "Days to complete course 1: " << daysToComplete.at(0) << endl;
-    cout << "Days to complete course 2: " << daysToComplete.at(1) << endl;
-    cout << "Days to complete course 3: " << daysToComplete.at(2) << endl;
+    
+    cout << "Days to complete: {" <<
+    daysToComplete.at(0) << ", " <<
+    daysToComplete.at(1) << ", " <<
+    daysToComplete.at(2) << "}" << endl;
+    
     cout << "Student Degree Program: ";
     
     if (degreeProgram == 0) {
@@ -107,6 +115,7 @@ void Student::PrintStudent() const {
     }
 }
 
+///Deconstructor
 Student::~Student() {
     cout << "in student deconstructor: " << this->studentId << endl;
 }
