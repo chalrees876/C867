@@ -24,7 +24,7 @@ Student::Student(string studentId, string firstName, string lastName, string ema
 
 Student::Student()
     {
-    this->studentId = -1;
+    this->studentId = "Unknown";
     this->firstName = "Unknown";
     this->lastName = "Unknown";
     this->email = "Unknown";
@@ -88,7 +88,6 @@ void Student::PrintStudent() const {
     cout << "Student Age: " << age << endl;
     cout << "Student Name: " << lastName << ", " << firstName << endl;
     cout << "Student Email: " << email << endl;
-    ///FIXME  add days to complete array info to print
     cout << "Days to complete course 1: " << daysToComplete.at(0) << endl;
     cout << "Days to complete course 2: " << daysToComplete.at(1) << endl;
     cout << "Days to complete course 3: " << daysToComplete.at(2) << endl;
@@ -109,5 +108,5 @@ void Student::PrintStudent() const {
 }
 
 Student::~Student() {
-    cout << "in student deconstructor: " << this->studentID << endl;
+    cout << "in student deconstructor: " << this->studentId << endl;
 }

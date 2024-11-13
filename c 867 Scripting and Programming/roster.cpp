@@ -102,9 +102,10 @@ void Roster::printInvalidEmails() {
 }
 
 Roster::~Roster() {
-    int i = 0;
-    while (classRosterArray.size() > 0) {
-        delete classRosterArray.at(i)
-        i++;
+    for (int i = 0; i < classRosterArray.size(); ++i) {
+        cout << "in Roster Deconstructor: " << classRosterArray.at(i)->GetStudentId() << endl;
+        delete classRosterArray.at(i);
+        cout << "classRosterArray size: " << classRosterArray.size() << endl;
+        cout << "i: " << i << endl;
     }
 }
