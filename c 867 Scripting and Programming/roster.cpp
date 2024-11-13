@@ -36,10 +36,11 @@ void Roster::remove(string studentID) {
                 break;
             }
         }
+        if (!found) {
+            cout << "Error, student not found" << endl;
+        }
     }
-    if (!found) {
-        cout << "Error, student not found" << endl;
-    }
+    
 }
 
 void Roster::printAll() {
@@ -87,10 +88,12 @@ void Roster::printAverageDaysInCourse(string studentID) {
                 break;
             }
         }
+        if (!found) {
+            cout << "Error, student not found" << endl;
+            break;
+        }
     }
-    if (!found) {
-        cout << "Error, student not found" << endl;
-    }
+
 }
 
 void Roster::printInvalidEmails() {
