@@ -23,9 +23,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CEC7E7332CDC65B7008B3093 /* test */ = {
+		CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = test;
+			path = "c 867 Scripting and Programming";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -44,7 +44,7 @@
 		CEC7E7282CDC65B7008B3093 = {
 			isa = PBXGroup;
 			children = (
-				CEC7E7332CDC65B7008B3093 /* test */,
+				CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */,
 				CEC7E7322CDC65B7008B3093 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +73,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				CEC7E7332CDC65B7008B3093 /* test */,
+				CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */,
 			);
 			name = test;
 			packageProductDependencies = (
