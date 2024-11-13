@@ -38,6 +38,7 @@ void Roster::remove(string studentID) {
         }
         if (!found) {
             cout << "Error, student not found" << endl;
+            break;
         }
     }
     
