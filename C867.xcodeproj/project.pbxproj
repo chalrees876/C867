@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEC7E72C2CDC65B7008B3093 /* Build configuration list for PBXProject "test" */;
+			buildConfigurationList = CEC7E72C2CDC65B7008B3093 /* Build configuration list for PBXProject "C867" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -260,7 +260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEC7E72C2CDC65B7008B3093 /* Build configuration list for PBXProject "test" */ = {
+		CEC7E72C2CDC65B7008B3093 /* Build configuration list for PBXProject "C867" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEC7E7362CDC65B7008B3093 /* Debug */,
