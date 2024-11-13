@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE6552FC2CE519C800217F21 /* roster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE6552F82CE519C800217F21 /* roster.cpp */; };
+		CE6552FD2CE519C800217F21 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE6552F62CE519C800217F21 /* main.cpp */; };
+		CE6552FE2CE519C800217F21 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE6552FA2CE519C800217F21 /* student.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CEC7E72F2CDC65B7008B3093 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,16 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE6552F52CE519C800217F21 /* degree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = degree.h; sourceTree = "<group>"; };
+		CE6552F62CE519C800217F21 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CE6552F72CE519C800217F21 /* roster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = roster.h; sourceTree = "<group>"; };
+		CE6552F82CE519C800217F21 /* roster.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = roster.cpp; sourceTree = "<group>"; };
+		CE6552F92CE519C800217F21 /* student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
+		CE6552FA2CE519C800217F21 /* student.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
 		CEC7E7312CDC65B7008B3093 /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "c 867 Scripting and Programming";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CEC7E72E2CDC65B7008B3093 /* Frameworks */ = {
@@ -41,10 +45,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE6552FB2CE519C800217F21 /* main files */ = {
+			isa = PBXGroup;
+			children = (
+				CE6552F52CE519C800217F21 /* degree.h */,
+				CE6552F62CE519C800217F21 /* main.cpp */,
+				CE6552F72CE519C800217F21 /* roster.h */,
+				CE6552F82CE519C800217F21 /* roster.cpp */,
+				CE6552F92CE519C800217F21 /* student.h */,
+				CE6552FA2CE519C800217F21 /* student.cpp */,
+			);
+			path = "main files";
+			sourceTree = "<group>";
+		};
 		CEC7E7282CDC65B7008B3093 = {
 			isa = PBXGroup;
 			children = (
-				CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */,
+				CE6552FB2CE519C800217F21 /* main files */,
 				CEC7E7322CDC65B7008B3093 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,9 +88,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				CEC7E7332CDC65B7008B3093 /* c 867 Scripting and Programming */,
 			);
 			name = test;
 			packageProductDependencies = (
@@ -120,6 +134,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6552FC2CE519C800217F21 /* roster.cpp in Sources */,
+				CE6552FD2CE519C800217F21 /* main.cpp in Sources */,
+				CE6552FE2CE519C800217F21 /* student.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
