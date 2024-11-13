@@ -108,3 +108,6 @@ void Student::PrintStudent() const {
     }
 }
 
+Student::~Student() {
+    cout << "in student deconstructor: " << this->studentID << endl;
+}
