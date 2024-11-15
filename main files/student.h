@@ -22,7 +22,7 @@ class Student {
         void SetLastname(string currLastName);
         void SetEmailAddress(string currEmail);
         void SetAge(int currAge);
-        void setDaysToComplete(vector<int> daysToComplete);
+        void setDaysToComplete(int daysToComplete1, int daysToComplete2, int daysToComplete3);
         void SetDegreeProgram(DegreeProgram currDegreeProgram);
         ///Accessors
         string GetStudentId() const ;
@@ -30,7 +30,9 @@ class Student {
         string GetLastName() const ;
         string GetEmailAddress() const ;
         int GetAge() const ;
-        vector<int> GetDaysToComplete() const ;
+        int GetDaysToComplete1() const ;
+        int GetDaysToComplete2() const ;
+        int GetDaysToComplete3() const;
         DegreeProgram GetDegreeProgram() const ;
         void PrintStudent() const;
         ~Student();
@@ -42,7 +44,7 @@ class Student {
         string lastName;
         string email;
         int age;
-        vector<int> daysToComplete;
+        int daysToComplete[3];
         DegreeProgram degreeProgram;
 };
 

@@ -20,6 +20,11 @@ int main() {
     int studentListSize = (sizeof(studentData)/sizeof(studentData[0]));
     string currId;
     
+    cout << "Course Title: C867 Scripting and Programming Applications" << endl;
+    cout << "Language Used: C++" << endl;
+    cout << "WGU Student ID: 012340722" << endl;
+    cout << "Student Name: Chris Mckenzie" << endl;
+    
     Roster classRoster; //constructs a Roster object classRoster
     
     parseStudentData(studentData, studentListSize, classRoster);//parses student data from table and adds it to classRoster object.
@@ -29,8 +34,7 @@ int main() {
     
     for (int i = 0; i < classRoster.getNumStudents(); ++i) {
         // Iterates through classRoster array and prints out average days in course for each student
-        currId = classRoster.getClassRosterArray().at(i)->GetStudentId();
-        classRoster.printAverageDaysInCourse(currId);
+        classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentId());
     }
     
     classRoster.printByDegreeProgram(SOFTWARE);

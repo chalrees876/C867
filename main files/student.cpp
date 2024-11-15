@@ -17,9 +17,9 @@ Student::Student(string studentId, string firstName, string lastName, string ema
     this->lastName = lastName;
     this->email = email;
     this->age = age;
-    this->daysToComplete.push_back(daysToComplete1);
-    this->daysToComplete.push_back(daysToComplete2);
-    this->daysToComplete.push_back(daysToComplete3);
+    this->daysToComplete[0] = daysToComplete1;
+    this->daysToComplete[1] = daysToComplete2;
+    this->daysToComplete[2] = daysToComplete3;
     this->degreeProgram = degreeProgram;
 }
 
@@ -31,9 +31,9 @@ Student::Student()
     this->lastName = "Unknown";
     this->email = "Unknown";
     this->age = -1;
-    this->daysToComplete.push_back(-1);
-    this->daysToComplete.push_back(-1);
-    this->daysToComplete.push_back(-1);
+    this->daysToComplete[0] = -1;
+    this->daysToComplete[1] = -1;
+    this->daysToComplete[2] = -1;
     this->degreeProgram = NONE;
 }
 
@@ -53,8 +53,10 @@ void Student::SetEmailAddress(string currEmail) {
 void Student::SetAge(int age) {
     this->age = age;
 }
-void Student::setDaysToComplete(vector<int> daysToComplete) {
-    this->daysToComplete = daysToComplete;
+void Student::setDaysToComplete(int daysToComplete1, int daysToComplete2, int daysToComplete3) {
+    this->daysToComplete[0] = daysToComplete1;
+    this->daysToComplete[1] = daysToComplete2;
+    this->daysToComplete[2] = daysToComplete3;
 }
 void Student::SetDegreeProgram(DegreeProgram degreeProgram) {
     this->degreeProgram = degreeProgram;
@@ -76,8 +78,16 @@ int Student::GetAge() const {
     return age;
 }
 
-vector<int> Student::GetDaysToComplete() const {
-    return daysToComplete;
+int Student::GetDaysToComplete1() const {
+    return daysToComplete[0];
+}
+
+int Student::GetDaysToComplete2() const {
+    return daysToComplete[1];
+}
+
+int Student::GetDaysToComplete3() const {
+    return daysToComplete[2];
 }
 
 DegreeProgram Student::GetDegreeProgram() const {
@@ -87,6 +97,8 @@ DegreeProgram Student::GetDegreeProgram() const {
 void Student::PrintStudent() const {
     
     cout << "///////////////////////////////////" << endl;
+    
+    cout << "Student ID: " << studentId << endl;
 
     cout << "Student Age: " << age << endl;
     
@@ -95,9 +107,9 @@ void Student::PrintStudent() const {
     cout << "Student Email: " << email << endl;
     
     cout << "Days to complete: {" <<
-    daysToComplete.at(0) << ", " <<
-    daysToComplete.at(1) << ", " <<
-    daysToComplete.at(2) << "}" << endl;
+    daysToComplete[0] << ", " <<
+    daysToComplete[1] << ", " <<
+    daysToComplete[2] << "}" << endl;
     
     cout << "Student Degree Program: ";
     
@@ -118,4 +130,5 @@ void Student::PrintStudent() const {
 ///Deconstructor
 Student::~Student() {
     cout << "in student deconstructor: " << this->studentId << endl;
+    return;
 }

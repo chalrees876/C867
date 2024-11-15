@@ -8,37 +8,31 @@
 #include <iostream>
 
 unsigned long Roster::getNumStudents() {
-    return classRosterArray.size();
+    return studentNumber;
 }
 
-vector<Student*> Roster::getClassRosterArray(){
-    return classRosterArray;
-}
+//vector<Student*> Roster::getClassRosterArray(){
+ //   return classRosterArray;
+//}
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
-    Student* newStudent = new Student;
     
-    newStudent->SetStudentID(studentID);
-    newStudent->SetFirstName(firstName);
-    newStudent->SetLastname(lastName);
-    newStudent->SetEmailAddress(emailAddress);
-    newStudent->SetAge(age);
-    vector<int> currDaysToComplete(3);
-    currDaysToComplete.at(0) = daysInCourse1;
-    currDaysToComplete.at(1) = daysInCourse2;
-    currDaysToComplete.at(2) = daysInCourse3;
-    newStudent->setDaysToComplete(currDaysToComplete);
-    newStudent->SetDegreeProgram(degreeProgram);
-    
-    classRosterArray.push_back(newStudent);
+    classRosterArray[studentNumber] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    this->studentNumber++;
 }
 
 void Roster::remove(string studentID) {
     bool found = false;
     while (!found) {
-        for (int i =0; i < classRosterArray.size(); ++i) {
-            if (classRosterArray.at(i)->GetStudentId() == studentID) {
-                classRosterArray.erase(classRosterArray.begin() + i);
+        for (int i =0; i < studentNumber; ++i) {
+            if (classRosterArray[i]->GetStudentId() == studentID) {
+                cout << "///////////////////////////////////" << endl;
+                cout << "Student ID: " << classRosterArray[i]->GetStudentId() << " has been removed." << endl;
+                --studentNumber;
+                for (int j = i; j < studentNumber; ++j) {
+                    classRosterArray[j] = classRosterArray[j+1];
+                }
+                classRosterArray[studentNumber] = nullptr;
                 found = true;
                 break;
             }
@@ -53,32 +47,8 @@ void Roster::remove(string studentID) {
 }
 
 void Roster::printAll() {
-    for (int i = 0; i < classRosterArray.size(); ++i) {
-        cout << "///////////////////////////////////" << endl;
-        cout << classRosterArray.at(i)->GetStudentId() << "\t";
-        cout << "First Name: " << classRosterArray.at(i)->GetFirstName() << "\t";
-        cout << "Last Name: " << classRosterArray.at(i)->GetLastName() << "\t";
-        cout << "Age: " << classRosterArray.at(i)->GetAge() << "\t";
-        cout << "daysInCourse: {" <<
-        classRosterArray.at(i)->GetDaysToComplete().at(0) << ", " <<
-        classRosterArray.at(i)->GetDaysToComplete().at(1) << ", " <<
-        classRosterArray.at(i)->GetDaysToComplete().at(2) << "}\t";
-        cout << "Degree Program: ";
-        
-        if (classRosterArray.at(i)->GetDegreeProgram() == 0) {
-            cout << "SECURITY";
-        }
-        else if (classRosterArray.at(i)->GetDegreeProgram() == 1) {
-            cout << "NETWORK";
-        }
-        else if (classRosterArray.at(i)->GetDegreeProgram() == 2) {
-            cout << "SOFTWARE";
-        }
-        else {
-            cout << "NONE";
-        }
-        
-        cout << "}" << endl;
+    for (int i = 0; i < studentNumber; ++i) {
+        classRosterArray[i]->PrintStudent();
     }
 }
 
@@ -87,12 +57,13 @@ void Roster::printAverageDaysInCourse(string studentID) {
     double average;
     cout << "///////////////////////////////////" << endl;
     while (!found) {
-        for (int i =0; i < classRosterArray.size(); ++i) {
-            if (classRosterArray.at(i)->GetStudentId() == studentID) {
+        for (int i =0; i < studentNumber; ++i) {
+            if (classRosterArray[i]->GetStudentId() == studentID) {
                 average =
-                (classRosterArray.at(i)->GetDaysToComplete().at(0) +
-                classRosterArray.at(i)->GetDaysToComplete().at(1) +
-                 classRosterArray.at(i)->GetDaysToComplete().at(2)) / 3.0;
+                (classRosterArray[i]->GetDaysToComplete1() +
+                classRosterArray[i]->GetDaysToComplete2() +
+                 classRosterArray[i]->GetDaysToComplete3()) / 3.0;
+                cout << "Student ID: " << classRosterArray[i]->GetStudentId() << endl;
                 cout << "Average days in courses: " << average << endl;
                 found = true;
                 break;
@@ -110,8 +81,8 @@ void Roster::printInvalidEmails() {
     string currEmail;
     unsigned long foundAt, foundPeriod, foundSpace;
     cout << "///////////////////////////////////" << endl;
-    for (int i = 0; i < classRosterArray.size(); ++i) {
-        currEmail = classRosterArray.at(i)->GetEmailAddress();
+    for (int i = 0; i < studentNumber; ++i) {
+        currEmail = classRosterArray[i]->GetEmailAddress();
         foundAt = currEmail.find('@');
         foundPeriod = currEmail.find('.');
         foundSpace = currEmail.find(' ');
@@ -119,23 +90,23 @@ void Roster::printInvalidEmails() {
             continue;
         }
         else {
-            cout << "Invalid email address: " << classRosterArray.at(i)->GetEmailAddress() << endl;
+            cout << "Invalid email address: " << classRosterArray[i]->GetEmailAddress() << endl;
         }
     }
 }
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
-    for (int i = 0; i < classRosterArray.size(); ++i) {
-        if (classRosterArray.at(i)->GetDegreeProgram() == degreeProgram) {
-            classRosterArray.at(i)->PrintStudent();
+    for (int i = 0; i < studentNumber; ++i) {
+        if (classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
+            classRosterArray[i]->PrintStudent();
         }
     }
 }
 
 //Deconstructor
 Roster::~Roster() {
-    for (int i = 0; i < classRosterArray.size(); ++i) {
-        cout << "in Roster Deconstructor: " << classRosterArray.at(i)->GetStudentId() << endl;
-        delete classRosterArray.at(i);
+    for (int i = 0; i < studentNumber; ++i) {
+        delete classRosterArray[i];
+        classRosterArray[i] = nullptr;
     }
 }
